@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
+import ChatbotWidget from "../../components/ChatbotWidget";
 
 const NAV_ITEMS = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -40,7 +41,7 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row">
+    <div className="relative min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row">
       {/* Mobile Top Header */}
       <div className="md:hidden flex items-center justify-between p-4 bg-slate-900 border-b border-slate-800">
         <div className="flex items-center gap-2">
@@ -120,6 +121,9 @@ export default function DashboardLayout({
 
       {/* Main Content Area */}
       <main className="flex-1 md:ml-64 p-4 sm:p-8">{children}</main>
+
+      {/* Floating AI Assistant Widget */}
+      <ChatbotWidget />
     </div>
   );
 }
